@@ -16,7 +16,7 @@ jobs:
           python-version: 3.9  
           cache: true
           architecture: x64    
-          version: 1.4.0       
+          version: head     
           prerelease: true     
           enable-pep582: true  
       - name: Install dependencies
