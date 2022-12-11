@@ -1,0 +1,67 @@
+name: Python test
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  pytest:
+    runs-on: [self-hosted, ubuntu_e2e]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pdm-project/setup-pdm@v3
+        name: Setup PDM
+        with:
+          python-version: 3.9  
+          cache: true
+          architecture: x64    
+          version: 1.4.0       
+          prerelease: true     
+          enable-pep582: true  
+      - name: Install dependencies
+        run: pdm install  
+      - name: Run pytest
+        run: |
+          pytest -n -2 --html=report.html --self-contained-html
+        continue-on-error: true
+      - name: Check test result
+        if: steps.pytest.outputs.num_failures > 0
+        run: |
+          echo "Test failed"
+          echo "num_tests = ${{steps.pytest.outputs.num_tests}}"
+          echo "num_errors = ${{steps.pytest.outputs.num_errors}}"
+          echo "num_failures = ${{steps.pytest.outputs.num_failures}}"
+          echo "num_skipped = ${{steps.pytest.outputs.num_skipped}}"
+          echo "summary = ${{steps.pytest.outputs.summary}}"
+        id: check-test-result
+      - name: Upload Pytest HTML report
+        uses: actions/upload-artifact@v1
+        with:
+          name: pytest-report
+          path: report.html
+
+      - name: Create or update test result issue
+        if: steps.pytest.outputs.num_failures > 0
+        uses: peter-evans/create-issue@v1
+        with:
+          title: Test Result
+          body: |
+            The test results are attached.
+            
+            ## Test Summary
+
+            | Test Suite | Tests | Errors | Failures | Skipped |
+            |------------|-------|--------|----------|---------|
+            | All        |  ${{steps.pytest.outputs.num_tests}} | ${{steps.pytest.outputs.num_errors}} | ${{steps.pytest.outputs.num_failures}} | ${{steps.pytest.outputs.num_skipped}} |
+
+            ## Test Details
+
+            ${{steps.pytest.outputs.summary}}
+
+            ##Pytest HTML report
+            
+            ${{ steps.upload-artifact.outputs.url }}
+          labels: test-result
+          issue_number: ${{github.event.issue.number}}
+
+
