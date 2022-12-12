@@ -27,7 +27,7 @@ jobs:
           pdm run -v pytest --html=report.html --self-contained-html
         continue-on-error: true
       - name: Check test result
-        if: steps.pytest.outputs.num_failures > 0
+        if: failure()
         run: |
           echo "Test failed"
           echo "num_tests = ${{steps.pytest.outputs.num_tests}}"
