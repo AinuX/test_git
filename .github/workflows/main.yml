@@ -30,12 +30,17 @@ jobs:
       - name: Check test result
         if: failure()
         run: |
+          num_tests=$(jq ".num_tests" < pytest.json)
+          num_errors=$(jq ".num_errors" < pytest.json)
+          num_failures=$(jq ".num_failures" < pytest.json)
+          num_skipped=$(jq ".num_skipped" < pytest.json)
+          summary=$(jq ".summary" < pytest.json)
           echo "Test failed"
-          echo "num_tests = ${{steps.pytest.outputs.num_tests}}"
-          echo "num_errors = ${{steps.pytest.outputs.num_errors}}"
-          echo "num_failures = ${{steps.pytest.outputs.num_failures}}"
-          echo "num_skipped = ${{steps.pytest.outputs.num_skipped}}"
-          echo "summary = ${{steps.pytest.outputs.summary}}"
+          echo "num_tests = $num_tests"
+          echo "num_errors = $num_errors"
+          echo "num_failures = $num_failures"
+          echo "num_skipped = $num_skipped"
+          echo "summary = $summary"
         id: check-test-result
       - name: Upload Pytest HTML report
         if: always()
