@@ -26,8 +26,9 @@ jobs:
           set -o pipefail
           pdm run -v pytest --html=report.html --self-contained-html
         continue-on-error: true
+        id: pytest
       - name: Check test result
-        if: failure()
+        if: steps.pytest.outputs.num_failures > 0
         run: |
           echo "Test failed"
           echo "num_tests = ${{steps.pytest.outputs.num_tests}}"
