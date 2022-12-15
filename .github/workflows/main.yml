@@ -34,6 +34,10 @@ jobs:
           name: Python Tests            # Name of the check run which will be created
           path: report.xml    # Path to test results
           reporter: java-junit
+          only-summary: 'false'
+          list-suites: 'all'
+          list-tests: 'all'
+          output-to: 'checks'
 #       - name: Check test result
 #         if: failure()
 #         run: |
