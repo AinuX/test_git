@@ -28,7 +28,7 @@ jobs:
 #         continue-on-error: true
         id: pytest
       - name: Test Report
-        uses: dorny/test-reporter@v1
+        uses: phoenix-actions/test-reporting@v10
         if: success() || failure()    # run this step even if previous step failed
         with:
           name: Python Tests            # Name of the check run which will be created
