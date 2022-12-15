@@ -37,7 +37,7 @@ jobs:
           only-summary: 'false'
           list-suites: 'all'
           list-tests: 'all'
-          output-to: 'checks'
+          output-to: 'step-summary'
 #       - name: Check test result
 #         if: failure()
 #         run: |
