@@ -24,24 +24,31 @@ jobs:
       - name: Run pytest
         run: |
           set -o pipefail
-          pdm run -v pytest --html=report.html --self-contained-html
+          pdm run -v pytest --html=report.html --self-contained-html --junitxml=report.xml
 #         continue-on-error: true
         id: pytest
-      - name: Check test result
-        if: failure()
-        run: |
-          num_tests=$(jq ".num_tests" < pytest.json)
-          num_errors=$(jq ".num_errors" < pytest.json)
-          num_failures=$(jq ".num_failures" < pytest.json)
-          num_skipped=$(jq ".num_skipped" < pytest.json)
-          summary=$(jq ".summary" < pytest.json)
-          echo "Test failed"
-          echo "num_tests = $num_tests"
-          echo "num_errors = $num_errors"
-          echo "num_failures = $num_failures"
-          echo "num_skipped = $num_skipped"
-          echo "summary = $summary"
-        id: check-test-result
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          name: JEST Tests            # Name of the check run which will be created
+          path: report.xml    # Path to test results
+          reporter: jest-junit
+#       - name: Check test result
+#         if: failure()
+#         run: |
+#           num_tests=$(jq ".num_tests" < pytest.json)
+#           num_errors=$(jq ".num_errors" < pytest.json)
+#           num_failures=$(jq ".num_failures" < pytest.json)
+#           num_skipped=$(jq ".num_skipped" < pytest.json)
+#           summary=$(jq ".summary" < pytest.json)
+#           echo "Test failed"
+#           echo "num_tests = $num_tests"
+#           echo "num_errors = $num_errors"
+#           echo "num_failures = $num_failures"
+#           echo "num_skipped = $num_skipped"
+#           echo "summary = $summary"
+#         id: check-test-result
       - name: Upload Pytest HTML report
         if: always()
         uses: actions/upload-artifact@v1
