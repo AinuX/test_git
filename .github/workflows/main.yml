@@ -40,6 +40,7 @@ jobs:
           list-tests: 'all'
           output-to: 'step-summary'
       - name: Read output variables
+        if: always()
         run: |
           echo "url is ${{ steps.test-report.outputs.runHtmlUrl }}"
 #       - name: Check test result
