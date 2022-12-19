@@ -24,7 +24,7 @@ jobs:
       - name: Run pytest
         run: |
           set -o pipefail
-          pdm run -v pytest --html=report.html --self-contained-html --junitxml=report.xml
+          pdm run -v pytest -vvvvvv --html=report.html --self-contained-html --junitxml=report.xml
 #         continue-on-error: true
         id: pytest
       - name: Test Report
