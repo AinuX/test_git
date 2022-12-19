@@ -33,6 +33,7 @@ jobs:
         if: success() || failure()
         with:
           name: "Unit test report"
+          fail-on-error: 'false'
           path: 'report.xml'
           reporter: java-junit  
       - name: Test Report 2
