@@ -29,6 +29,7 @@ jobs:
         id: pytest
       - name: Test Report
         uses: phoenix-actions/test-reporting@v10
+        id: test-report 
         if: success() || failure()    # run this step even if previous step failed
         with:
           name: Python Tests            # Name of the check run which will be created
@@ -38,6 +39,9 @@ jobs:
           list-suites: 'all'
           list-tests: 'all'
           output-to: 'step-summary'
+      - name: Read output variables
+        run: |
+          echo "url is ${{ steps.test-report.outputs.runHtmlUrl }}"
 #       - name: Check test result
 #         if: failure()
 #         run: |
