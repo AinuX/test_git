@@ -24,7 +24,7 @@ jobs:
       - name: Run pytest
         run: |
           set -o pipefail
-          pdm run -v pytest -vvvvvv --html=report.html --self-contained-html --junitxml=report.xml
+          pdm run -v pytest -vvvvvv --html=index.html --self-contained-html --junitxml=report.xml
 #         continue-on-error: true
         id: pytest
 
@@ -90,6 +90,8 @@ jobs:
           
   publishTestResults:
     name: "Publish Test Results"
+    needs:
+      [pytest]
     runs-on: ubuntu-22.04
     if: always()
     steps:
