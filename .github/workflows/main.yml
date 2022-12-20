@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: pytest-report
-          path: report.html
+          path: index.html
           
       - name: Create or Update Issue
         if: failure()
