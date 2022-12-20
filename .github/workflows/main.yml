@@ -49,25 +49,7 @@ jobs:
           list-tests: 'all'
           fail-on-error: 'false'
           output-to: 'step-summary'
-      - name: Read output variables
-        if: always()
-        run: |
-          echo "url is ${{ steps.test-report.outputs.runHtmlUrl }}"
-#       - name: Check test result
-#         if: failure()
-#         run: |
-#           num_tests=$(jq ".num_tests" < pytest.json)
-#           num_errors=$(jq ".num_errors" < pytest.json)
-#           num_failures=$(jq ".num_failures" < pytest.json)
-#           num_skipped=$(jq ".num_skipped" < pytest.json)
-#           summary=$(jq ".summary" < pytest.json)
-#           echo "Test failed"
-#           echo "num_tests = $num_tests"
-#           echo "num_errors = $num_errors"
-#           echo "num_failures = $num_failures"
-#           echo "num_skipped = $num_skipped"
-#           echo "summary = $summary"
-#         id: check-test-result
+
       - name: Upload Pytest HTML report to artifacts
         if: always()
         uses: actions/upload-artifact@v1
@@ -84,6 +66,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           WORKFLOW: ${{ github.workflow }}
           TITLE: 'SNS API Testing Failed'
+          REPORT_URL: https://ainux.github.io/test_sns/pytest-report/
         with:
           filename: .github/TEST_FAIL_TEMPLATE.md
           update_existing: true
@@ -104,32 +87,11 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ${{steps.download.outputs.download-path}}
           keep_files: true 
           user_name: 'github-actions[bot]' 
           user_email: 'github-actions[bot]@users.noreply.github.com' 
-#       - name: Create or update test result issue
-#         if: success() || failure()
-#         uses: peter-evans/create-or-update-comment@v2
-#         with:
-#           title: Test Result
-#           body: |
-#             The test results are attached.
-            
-#             ## Test Summary
 
-#             | Test Suite | Tests | Errors | Failures | Skipped |
-#             |------------|-------|--------|----------|---------|
-#             | All        |  ${{steps.pytest.outputs.num_tests}} | ${{steps.pytest.outputs.num_errors}} | ${{steps.pytest.outputs.num_failures}} | ${{steps.pytest.outputs.num_skipped}} |
-
-#             ## Test Details
-
-#             ${{steps.pytest.outputs.summary}}
-
-#             ##Pytest HTML report
-            
-#             ${{ steps.upload-artifact.outputs.url }}
-#           labels: test-result
-#           issue_number: ${{github.event.issue.number}}
 
 
