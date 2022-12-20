@@ -74,29 +74,42 @@ jobs:
         with:
           name: pytest-report
           path: report.html
-
-      - name: Create or update test result issue
-        if: success() || failure()
-        uses: peter-evans/create-or-update-comment@v2
+          
+      - name: Create or Update Issue
+        if: failure()
+        uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          WORKFLOW: ${{ github.workflow }}
+          TITLE: 'SNS API Testing Failed'
         with:
-          title: Test Result
-          body: |
-            The test results are attached.
+          filename: .github/TEST_FAIL_TEMPLATE.md
+          update_existing: true
+
+#       - name: Create or update test result issue
+#         if: success() || failure()
+#         uses: peter-evans/create-or-update-comment@v2
+#         with:
+#           title: Test Result
+#           body: |
+#             The test results are attached.
             
-            ## Test Summary
+#             ## Test Summary
 
-            | Test Suite | Tests | Errors | Failures | Skipped |
-            |------------|-------|--------|----------|---------|
-            | All        |  ${{steps.pytest.outputs.num_tests}} | ${{steps.pytest.outputs.num_errors}} | ${{steps.pytest.outputs.num_failures}} | ${{steps.pytest.outputs.num_skipped}} |
+#             | Test Suite | Tests | Errors | Failures | Skipped |
+#             |------------|-------|--------|----------|---------|
+#             | All        |  ${{steps.pytest.outputs.num_tests}} | ${{steps.pytest.outputs.num_errors}} | ${{steps.pytest.outputs.num_failures}} | ${{steps.pytest.outputs.num_skipped}} |
 
-            ## Test Details
+#             ## Test Details
 
-            ${{steps.pytest.outputs.summary}}
+#             ${{steps.pytest.outputs.summary}}
 
-            ##Pytest HTML report
+#             ##Pytest HTML report
             
-            ${{ steps.upload-artifact.outputs.url }}
-          labels: test-result
-          issue_number: ${{github.event.issue.number}}
+#             ${{ steps.upload-artifact.outputs.url }}
+#           labels: test-result
+#           issue_number: ${{github.event.issue.number}}
 
 
