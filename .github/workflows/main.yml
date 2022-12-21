@@ -102,7 +102,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: ${{ github.job }} job has ${{ job.status }}
-          html_body: file://${{ github.workspace }}/index.html
+          html_body: file://${{ github.workspace }}/pytest-report/index.html
 #           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
           to: ${{ secrets.RECEIVER_2 }}
           from: E2E_TEST_BOT
