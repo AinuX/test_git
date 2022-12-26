@@ -439,7 +439,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>index.html</h1>
-    <p>Report generated on 26-Dec-2022 at 15:12:20 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 26-Dec-2022 at 16:16:04 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -461,7 +461,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.9.16</td></tr></table>
     <h2>Summary</h2>
-    <p>4 tests ran in 4.84 seconds. </p>
+    <p>4 tests ran in 4.64 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -481,13 +481,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">api_request_context = &lt;playwright._impl._fetch.APIRequestContext object at 0x7fc8e34f5400&gt;<br/><br/>    def test_twitter_getSettings(api_request_context: APIRequestContext):<br/>        # getSettings<br/>        params = {<br/>            &quot;include_mention_filter&quot;: False,<br/>            &quot;include_nsfw_user_flag&quot;: False,<br/>            &quot;include_nsfw_admin_flag&quot;: False,<br/>            &quot;include_ranked_timeline&quot;: False,<br/>            &quot;include_alt_text_compose&quot;: False,<br/>            &quot;include_country_code&quot;: False,<br/>            &quot;include_ext_dm_nsfw_media_filter&quot;: False,<br/>        }<br/>        response = api_request_context.get(<br/>            pytest.settings_url,<br/>            headers=pytest.twitter_headers,<br/>            params=params,<br/>        )<br/>        print(response.url)<br/>&gt;       assert response.status == 200<br/><span class="error">E       AssertionError: assert 403 == 200</span><br/><span class="error">E        +  where 403 = &lt;APIResponse url=&#x27;https://twitter.com/i/api/1.1/account/settings.json?include_mention_filter=False&amp;include_nsfw_user_flag=False&amp;include_nsfw_admin_flag=False&amp;include_ranked_timeline=False&amp;include_alt_text_compose=False&amp;include_country_code=False&amp;include_ext_dm_nsfw_media_filter=False&#x27; status=403 status_text=&#x27;Forbidden&#x27;&gt;.status</span><br/><br/>test_sns_api.py:40: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>https://twitter.com/i/api/1.1/account/settings.json?include_mention_filter=False&amp;include_nsfw_user_flag=False&amp;include_nsfw_admin_flag=False&amp;include_ranked_timeline=False&amp;include_alt_text_compose=False&amp;include_country_code=False&amp;include_ext_dm_nsfw_media_filter=False
+            <div class="log">api_request_context = &lt;playwright._impl._fetch.APIRequestContext object at 0x7f331d1854f0&gt;<br/><br/>    def test_twitter_getSettings(api_request_context: APIRequestContext):<br/>        # getSettings<br/>        params = {<br/>            &quot;include_mention_filter&quot;: False,<br/>            &quot;include_nsfw_user_flag&quot;: False,<br/>            &quot;include_nsfw_admin_flag&quot;: False,<br/>            &quot;include_ranked_timeline&quot;: False,<br/>            &quot;include_alt_text_compose&quot;: False,<br/>            &quot;include_country_code&quot;: False,<br/>            &quot;include_ext_dm_nsfw_media_filter&quot;: False,<br/>        }<br/>        response = api_request_context.get(<br/>            pytest.settings_url,<br/>            headers=pytest.twitter_headers,<br/>            params=params,<br/>        )<br/>        print(response.url)<br/>&gt;       assert response.status == 200<br/><span class="error">E       AssertionError: assert 403 == 200</span><br/><span class="error">E        +  where 403 = &lt;APIResponse url=&#x27;https://twitter.com/i/api/1.1/account/settings.json?include_mention_filter=False&amp;include_nsfw_user_flag=False&amp;include_nsfw_admin_flag=False&amp;include_ranked_timeline=False&amp;include_alt_text_compose=False&amp;include_country_code=False&amp;include_ext_dm_nsfw_media_filter=False&#x27; status=403 status_text=&#x27;Forbidden&#x27;&gt;.status</span><br/><br/>test_sns_api.py:40: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>https://twitter.com/i/api/1.1/account/settings.json?include_mention_filter=False&amp;include_nsfw_user_flag=False&amp;include_nsfw_admin_flag=False&amp;include_ranked_timeline=False&amp;include_alt_text_compose=False&amp;include_country_code=False&amp;include_ext_dm_nsfw_media_filter=False
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_sns_api.py::test_twitter_getUserNftContainer</td>
-          <td class="col-duration">3.42</td>
+          <td class="col-duration">3.34</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -497,7 +497,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_sns_api.py::test_twitter_getUserByScreenName</td>
-          <td class="col-duration">0.40</td>
+          <td class="col-duration">0.41</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -507,7 +507,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_sns_api.py::test_minds_getUserByScreenName</td>
-          <td class="col-duration">0.55</td>
+          <td class="col-duration">0.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
