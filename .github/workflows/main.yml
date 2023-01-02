@@ -86,7 +86,8 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com' 
           
       - name: Send mail
-        if: needs.pytest.result == 'failure'
+        if: always()      
+#         if: needs.pytest.result == 'failure'
         uses: dawidd6/action-send-mail@v3.7.1
         with:
           server_address: smtp.gmail.com
