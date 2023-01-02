@@ -94,14 +94,14 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com' 
           
       - name: Send mail
-        if: always()
+        if: needs.pytest.result == 'failure'
         uses: dawidd6/action-send-mail@v3.7.1
         with:
           server_address: smtp.gmail.com
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: ${{ github.job }} job has ${{ job.status }}
+          subject: E2E Test job has ${{ needs.pytest.result }}
           html_body: file://${{ github.workspace }}/pytest-report/index.html
 #           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
           to: ${{ secrets.RECEIVER_2 }}
