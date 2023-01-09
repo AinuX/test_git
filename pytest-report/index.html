@@ -439,7 +439,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>index.html</h1>
-    <p>Report generated on 09-Jan-2023 at 09:13:09 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 09-Jan-2023 at 10:14:28 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -461,8 +461,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.9.16</td></tr></table>
     <h2>Summary</h2>
-    <p>4 tests ran in 4.13 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>4 tests ran in 4.24 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -473,20 +473,11 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
-        <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">test_sns_api.py::test_twitter_getSettings</td>
-          <td class="col-duration">0.15</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">api_request_context = &lt;playwright._impl._fetch.APIRequestContext object at 0x7f2e6df60910&gt;<br/><br/>    def test_twitter_getSettings(api_request_context: APIRequestContext):<br/>        # getSettings<br/>        params = {<br/>            &quot;include_mention_filter&quot;: False,<br/>            &quot;include_nsfw_user_flag&quot;: False,<br/>            &quot;include_nsfw_admin_flag&quot;: False,<br/>            &quot;include_ranked_timeline&quot;: False,<br/>            &quot;include_alt_text_compose&quot;: False,<br/>            &quot;include_country_code&quot;: False,<br/>            &quot;include_ext_dm_nsfw_media_filter&quot;: False,<br/>        }<br/>&gt;       response = api_request_context.get(<br/>            pytest.settings_url,<br/>            headers=pytest.twitter_headers,<br/>            params=params,<br/>        )<br/><br/>test_sns_api.py:34: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>.venv/lib/python3.9/site-packages/playwright/sync_api/_generated.py:15909: in get<br/>    self._sync(<br/>.venv/lib/python3.9/site-packages/playwright/_impl/_fetch.py:167: in get<br/>    return await self.fetch(<br/>.venv/lib/python3.9/site-packages/playwright/_impl/_fetch.py:341: in fetch<br/>    response = await self._channel.send(<br/>.venv/lib/python3.9/site-packages/playwright/_impl/_connection.py:44: in send<br/>    return await self._connection.wrap_api_call(<br/>.venv/lib/python3.9/site-packages/playwright/_impl/_connection.py:419: in wrap_api_call<br/>    return await cb()<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;playwright._impl._connection.Channel object at 0x7f2e6df608e0&gt;<br/>method = &#x27;fetch&#x27;<br/>params = {&#x27;headers&#x27;: [{&#x27;name&#x27;: &#x27;authorization&#x27;, &#x27;value&#x27;: &#x27;Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D...{&#x27;name&#x27;: &#x27;include_country_code&#x27;, &#x27;value&#x27;: &#x27;False&#x27;}, ...], &#x27;url&#x27;: &#x27;https://twitter.com/i/api/1.1/account/settings.json&#x27;}<br/>return_as_dict = False<br/><br/>    async def inner_send(<br/>        self, method: str, params: Optional[Dict], return_as_dict: bool<br/>    ) -&gt; Any:<br/>        if params is None:<br/>            params = {}<br/>        callback = self._connection._send_message_to_server(self._guid, method, params)<br/>        if self._connection._error:<br/>            error = self._connection._error<br/>            self._connection._error = None<br/>            raise error<br/>        done, _ = await asyncio.wait(<br/>            {<br/>                self._connection._transport.on_error_future,<br/>                callback.future,<br/>            },<br/>            return_when=asyncio.FIRST_COMPLETED,<br/>        )<br/>        if not callback.future.done():<br/>            callback.future.cancel()<br/>&gt;       result = next(iter(done)).result()<br/><span class="error">E       playwright._impl._api_types.Error: read ECONNRESET</span><br/><span class="error">E       =========================== logs ===========================</span><br/><span class="error">E       → GET https://twitter.com/i/api/1.1/account/settings.json?include_mention_filter=False&amp;include_nsfw_user_flag=False&amp;include_nsfw_admin_flag=False&amp;include_ranked_timeline=False&amp;include_alt_text_compose=False&amp;include_country_code=False&amp;include_ext_dm_nsfw_media_filter=False</span><br/><span class="error">E         user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36</span><br/><span class="error">E         accept: */*</span><br/><span class="error">E         accept-encoding: gzip,deflate,br</span><br/><span class="error">E         authorization: Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA</span><br/><span class="error">E         x-csrf-token: e56c552082e8e846b674d907ebb29be9f8589a24468306c1628e1e433a7cbf95c7ad9d39bfeb73180e4a5454793089c5be124658ef4255012dbcc795c920c48b2acab33cdf6666fdf3637ce4f12ebc22</span><br/><span class="error">E         cookie: _ga=GA1.2.858768117.1670143164; kdt=7ESJw5Vr6BuIzvMH4SXzdozdpGNg51PAPMLEnvxY; dnt=1; _twitter_sess=BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCNYLyvmEAToMY3NyZl9p%250AZCIlMTdlZWEyN2Y1OWQ2YjY3Nzk5YWE2NDUyMjIxNWY2NGI6B2lkIiVlODEx%250AZmY1NTk4MWI5YzNhYjZlZmU3ODY4MjMyMmM2OA%253D%253D--537e7910dd5620a99b3e9b870a5717dda26f2670; lang=en; g_state={&quot;i_l&quot;:0}; guest_id=v1%3A167265568338758987; auth_token=41040dbab44dbf4ba5a93b0667d0c6ee89a556e6; ct0=e56c552082e8e846b674d907ebb29be9f8589a24468306c1628e1e433a7cbf95c7ad9d39bfeb73180e4a5454793089c5be124658ef4255012dbcc795c920c48b2acab33cdf6666fdf3637ce4f12ebc22; twid=u%3D1599359240917090304</span><br/><span class="error">E       ============================================================</span><br/><br/>.venv/lib/python3.9/site-packages/playwright/_impl/_connection.py:79: Error<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_sns_api.py::test_twitter_getUserNftContainer</td>
-          <td class="col-duration">2.84</td>
+          <td class="col-duration">3.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -495,8 +486,18 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
+          <td class="col-name">test_sns_api.py::test_twitter_getSettings</td>
+          <td class="col-duration">0.33</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>https://twitter.com/i/api/1.1/account/settings.json?include_mention_filter=False&amp;include_nsfw_user_flag=False&amp;include_nsfw_admin_flag=False&amp;include_ranked_timeline=False&amp;include_alt_text_compose=False&amp;include_country_code=False&amp;include_ext_dm_nsfw_media_filter=False
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
           <td class="col-name">test_sns_api.py::test_twitter_getUserByScreenName</td>
-          <td class="col-duration">0.46</td>
+          <td class="col-duration">0.36</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -506,7 +507,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_sns_api.py::test_minds_getUserByScreenName</td>
-          <td class="col-duration">0.39</td>
+          <td class="col-duration">0.40</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
